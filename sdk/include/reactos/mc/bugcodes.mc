@@ -67,18 +67,9 @@ Severity=Informational
 Facility=System
 SymbolicName=REACTOS_COPYRIGHT_NOTICE
 Language=English
-\n\nReactOS is free software, covered by the GNU General Public License,
+\n\nCATV 95 is free software, covered by the GNU General Public License,
  and you\n are welcome to change it and/or distribute copies of it under
- certain\n conditions. There is absolutely no warranty for ReactOS.\n
-.
-
-MessageId=0x7F
-Severity=Warning
-Facility=System
-SymbolicName=BUGCHECK_MESSAGE_INTRO
-Language=English
-A problem has been detected and ReactOS has been shut down to prevent damage
-to your computer.
+ certain\n conditions. There is absolutely no warranty for CATV 95.\n
 .
 
 MessageId=0x80
@@ -108,21 +99,16 @@ SymbolicName=BUGCODE_PSS_MESSAGE
 Language=English
 Check to make sure any new hardware or software is properly installed.
 If this is a new installation, ask your hardware or software manufacturer
-for any ReactOS updates you might need.
+for any Republic of CATV 95 updates you might need.
 
 If problems continue, disable or remove any newly installed hardware
 or software. Disable BIOS memory options such as caching or shadowing.
 If you need to use Safe Mode to remove or disable components, restart
 your computer, press F8 to select Advanced Startup Options, and then
 select Safe Mode.
-.
 
-MessageId=0x83
-Severity=Warning
-Facility=System
-SymbolicName=BUGCHECK_TECH_INFO
-Language=English
-Technical information:
+Refer to Republic of CATV 95 Discord server for more information
+on how to troubleshoot Stop errors.
 .
 
 MessageId=0x0
@@ -380,6 +366,9 @@ BIOS memory options such as caching or shadowing. If you need
 to use Safe Mode to remove or disable components, restart your
 computer, press F8 to select Advanced Startup Options, and then
 select Safe Mode.
+
+Refer to Republic of CATV 95 Discord server for more information
+on how to troubleshoot Stop errors.
 .
 
 MessageId=0x1F
@@ -423,6 +412,9 @@ Disable or uninstall any anti-virus, disk defragmentation
 or backup utilities. Check your hard drive configuration,
 and check for any updated drivers. Run CHKDSK /F to check
 for hard drive corruption, and then restart your computer.
+
+Refer to Republic of CATV 95 Discord server for more information
+on how to troubleshoot Stop errors.
 .
 
 MessageId=0x24
@@ -519,6 +511,9 @@ BIOS memory options such as caching or shadowing. If you need
 to use Safe Mode to remove or disable components, restart your
 computer, press F8 to select Advanced Startup Options, and then
 select Safe Mode.
+
+Refer to Republic of CATV 95 Discord server for more information
+on how to troubleshoot Stop errors.
 .
 
 MessageId=0x2F
@@ -628,6 +623,9 @@ utilities or disk-intensive applications.
 If you need to use Safe Mode to remove or disable components,
 restart your computer, press F8 to select Advanced Startup
 Options, and then select Safe Mode.
+
+Refer to Republic of CATV 95 Discord server for more information
+on how to troubleshoot Stop errors.
 .
 
 MessageId=0x40
@@ -1088,6 +1086,9 @@ hard drives or hard drive controllers. Check your hard drive
 to make sure it is properly configured and terminated.
 Run CHKDSK /F to check for hard drive corruption, and then
 restart your computer.
+
+Refer to Republic of CATV 95 Discord server for more information
+on how to troubleshoot Stop errors.
 .
 
 MessageId=0x7C
@@ -1127,6 +1128,9 @@ Disable or remove any newly installed hardware and drivers. Disable or
 remove any newly installed software. If you need to use Safe Mode to
 remove or disable components, restart your computer, press F8 to select
 Advanced Startup Options, and then select Safe Mode.
+
+Refer to Republic of CATV 95 Discord server for more information
+on how to troubleshoot Stop errors.
 .
 
 MessageId=0x80
@@ -1221,6 +1225,9 @@ If this is the first time you have seen this error screen, read
 <http://www.gnu.org/philosophy/free-sw.html>.
 
 If problems continue, remove all nonfree software from your computer.
+
+Refer to Republic of CATV 95 Discord server for more information
+on how to troubleshoot Stop errors.
 .
 
 MessageId=0x9F
@@ -1341,7 +1348,7 @@ Severity=Success
 Facility=System
 SymbolicName=BUGCODE_PSS_MESSAGE_SIGNATURE
 Language=English
-A system file that is owned by ReactOS was replaced by an application
+A system file that is owned by Republic of CATV 95 was replaced by an application
 running on your system.  The operating system detected this and tried to
 verify the validity of the file's signature.  The operating system found that
 the file signature is not valid and put the original, correct file back
@@ -1365,7 +1372,7 @@ A device driver has pool.
 
 Check to make sure any new hardware or software is properly installed.
 If this is a new installation, ask your hardware or software manufacturer
-for any ReactOS updates you might need.
+for any Republic of CATV 95 updates you might need.
 
 Run the driver verifier against any new (or suspect) drivers.
 If that doesn't reveal the corrupting driver, try enabling special pool.
@@ -1375,6 +1382,9 @@ point where the offending driver can be identified.
 If you need to use Safe Mode to remove or disable components,
 restart your computer, press F8 to select Advanced Startup Options,
 and then select Safe Mode.
+
+Refer to Republic of CATV 95 Discord server for more information
+on how to troubleshoot Stop errors.
 .
 
 MessageId=0xC6
@@ -1558,12 +1568,12 @@ SymbolicName=ACPI_BIOS_FATAL_ERROR
 Language=English
 
 Your computer (BIOS) has reported that a component in your system is faulty and
-has prevented ReactOS from operating.  You can determine which component is
+has prevented CATV 95 from operating.  You can determine which component is
 faulty by running the diagnostic disk or tool that came with your computer.
 
 If you do not have this tool, you must contact your system vendor and report
 this error message to them.  They will be able to assist you in correcting this
-hardware problem thereby allowing ReactOS to operate.
+hardware problem thereby allowing the Republic of CATV 95 to operate.
 .
 
 MessageId=0xE1
