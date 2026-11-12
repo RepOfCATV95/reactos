@@ -20,7 +20,7 @@
 #ifdef WINE_FILEDESCRIPTION_STR
 #define REACTOS_STR_FILE_DESCRIPTION WINE_FILEDESCRIPTION_STR
 #else
-#define REACTOS_STR_FILE_DESCRIPTION "ReactOS/Wine core dll\0"
+#define REACTOS_STR_FILE_DESCRIPTION "CATV 95/Wine core dll\0"
 #endif /* WINE_FILEDESCRIPTION_STR */
 
 #ifdef WINE_FILENAME_STR
@@ -45,9 +45,9 @@
 #endif /* WINE_OLESELFREGISTER */
 
 /* Credit the Wine team */
-#define REACTOS_STR_COMPANY_NAME "ReactOS Project/Wine Team\0"
-#define REACTOS_STR_LEGAL_COPYRIGHT "(C) 1996-" COPYRIGHT_YEAR " ReactOS Project, 1993-" COPYRIGHT_YEAR " the Wine project authors\0"
-#define REACTOS_STR_ORIGINAL_COPYRIGHT "(C) 1993-" COPYRIGHT_YEAR " the Wine project authors"
+#define REACTOS_STR_COMPANY_NAME "Republic of CATV 95/Wine Team\0"
+#define REACTOS_STR_LEGAL_COPYRIGHT "(C) 1997-" COPYRIGHT_YEAR " Republic of CATV 95, 1996-2026 ReactOS Project, 1993-2026 the Wine project authors\0"
+#define REACTOS_STR_ORIGINAL_COPYRIGHT "(C) 1993-2026 the Wine project authors"
 
 #define REACTOS_VERSION_DLL
 

@@ -144,8 +144,8 @@
 // Company and Trademarks
 //
 #define VER_COMPANYNAME_STR                 \
-    "ReactOS Project"
+    "Republic of CATV 95"
 #define VER_PRODUCTNAME_STR                 \
-    "ReactOS Operating System"
+    "CATV 95 Operating System"
 #define VER_LEGALTRADEMARKS_STR             \
-    "ReactOS is a registered trademark of ReactOS Deutschland e.V."
+    "CATV 95 is a registered trademark of the Republic of CATV 95."

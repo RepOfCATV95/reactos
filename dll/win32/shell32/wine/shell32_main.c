@@ -48,7 +48,7 @@
 
 WINE_DEFAULT_DEBUG_CHANNEL(shell);
 
-const char * const SHELL_Authors[] = { "Copyright 1993-"COPYRIGHT_YEAR" WINE team", "Copyright 1998-"COPYRIGHT_YEAR" ReactOS Team", 0 };
+const char * const SHELL_Authors[] = { "Copyright 1993-2026 WINE team", "Copyright 1996-2026 ReactOS Project", "Copyright 1997-"COPYRIGHT_YEAR" Republic of CATV 95", 0 };
 
 /*************************************************************************
  * CommandLineToArgvW            [SHELL32.@]
