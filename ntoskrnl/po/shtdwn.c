@@ -422,25 +422,55 @@ PopShutdownHandler(
     _In_ LONG NumberProcessors,
     _In_opt_ LONG volatile *Number)
 {
-    /* Disable interrupts and make sure the shutdown screen is enacted on the first processor */
+    PKPRCB aPRCB;
+
+
+    /* Disable interrupts, gather PRCB and make sure the shutdown screen is enacted on the first processor */
     _disable();
-    if ((Number != NULL) && (*Number == 0))
+    aPRCB = KeGetCurrentPrcb();
+    if (aPRCB->Number == 0)
     {
+        UCHAR PBColor;
+        PUCHAR Logo1, Logo2;
+
+        /* Assign a color */
+        PBColor = BV_COLOR_DARK_GRAY;
+
         /* Display the shutdown screen only if boot video is installed */
         if (InbvIsBootDriverInstalled())
         {
-            if (!InbvCheckDisplayOwnership())
+            /* Yes we do, cleanup for shutdown screen */
+            if (!InbvCheckDisplayOwnership()) InbvAcquireDisplayOwnership();
+            InbvResetDisplay();
+            InbvSolidColorFill(0, 0, SCREEN_WIDTH-1, SCREEN_HEIGHT-1, PBColor);
+            InbvEnableDisplayString(TRUE);
+            InbvSetScrollRegion(0, 0, SCREEN_WIDTH-1, SCREEN_HEIGHT-1);
+
+            /* Display shutdown logo and message */
+            Logo1 = InbvGetResourceAddress(IDB_SHUTDOWN_MSG);
+            if (SharedUserData->NtProductType == NtProductWinNt)
             {
-                InbvAcquireDisplayOwnership();
+                Logo2 = InbvGetResourceAddress(IDB_SHUTDOWN_LOGO_PRO);
+            }
+            else
+            {
+                Logo2 = InbvGetResourceAddress(IDB_SHUTDOWN_LOGO_SERVER);
             }
 
-            InbvResetDisplay();
-            DisplayShutdownBitmap();
+            if (Logo1 && Logo2)
+            {
+                InbvBitBlt(Logo1, VID_SHUTDOWN_MSG_LEFT, VID_SHUTDOWN_MSG_TOP);
+                InbvBitBlt(Logo2, VID_SHUTDOWN_LOGO_LEFT, VID_SHUTDOWN_LOGO_TOP);
+            }
         }
         else
         {
-            /* No boot video is installed, display the shutdown screen in text-mode */
-            DisplayShutdownText();
+            ULONG i;
+
+            /* Do it in text-mode */
+            for (i = 0; i < 25; ++i) InbvDisplayString("\r\n");
+            InbvDisplayString("                       ");
+            InbvDisplayString("The system may be powered off now\r\n");
         }
     }
 

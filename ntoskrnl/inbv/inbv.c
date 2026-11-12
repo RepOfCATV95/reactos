@@ -704,8 +704,8 @@ InbvUpdateProgressBar(
         (InbvDisplayState == INBV_DISPLAY_STATE_OWNED))
     {
         /* Compute the total progress and tick the progress bar */
-        TotalProgress = InbvProgressState.Floor + (Percentage * InbvProgressState.Bias);
-        // TotalProgress /= (100 * 100);
+        TotalProgress = Percentage * InbvProgressState.Bias;
+        TotalProgress += InbvProgressState.Floor;
 
         BootAnimTickProgressBar(TotalProgress);
     }

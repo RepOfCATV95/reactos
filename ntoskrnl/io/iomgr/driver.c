@@ -278,6 +278,7 @@ Cleanup:
     return status;
 }
 
+#if DBG
 /**
  * @brief   Determines whether String1 may be a suffix of String2.
  * @return  TRUE if String2 contains String1 as a suffix.
@@ -349,6 +350,7 @@ IopDisplayLoadingMessage(
                            ? "" : ".SYS");
     HalDisplayString(TextBuffer);
 }
+#endif
 
 /*
  * IopNormalizeImagePath
@@ -828,7 +830,9 @@ IopInitializeBuiltinDriver(IN PLDR_DATA_TABLE_ENTRY BootLdrEntry)
     /*
      * Display 'Loading XXX...' message
      */
+#if DBG
     IopDisplayLoadingMessage(ModuleName);
+#endif
     InbvIndicateProgress();
 
     Buffer = ExAllocatePoolWithTag(PagedPool,
@@ -2051,8 +2055,9 @@ IopLoadDriver(
                     .MaximumLength = servName->NameLength,
                     .Buffer = servName->Name
                 };
-
+#if DBG
                 IopDisplayLoadingMessage(&serviceName);
+#endif
             }
             ExFreePoolWithTag(servName, TAG_IO);
         }

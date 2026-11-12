@@ -1491,12 +1491,9 @@ Phase1InitializationDiscard(IN PVOID Context)
     if (NT_SUCCESS(MsgStatus))
     {
         /* Create the banner message */
-        /* ReactOS specific: Report ReactOS version, NtBuildLab information and reported NT kernel version */
         Status = RtlStringCbPrintfA(EndBuffer,
                                     Remaining,
                                     (PCHAR)MsgEntry->Text,
-                                    KERNEL_VERSION_STR,
-                                    NtBuildLab,
                                     StringBuffer,
                                     NtBuildNumber & 0xFFFF,
                                     BeginBuffer);
@@ -1509,7 +1506,7 @@ Phase1InitializationDiscard(IN PVOID Context)
     else
     {
         /* Use hard-coded banner message */
-        Status = RtlStringCbCopyA(EndBuffer, Remaining, "REACTOS (R)\r\n");
+        Status = RtlStringCbCopyA(EndBuffer, Remaining, "REPUBLIC OF CATV 95 (R)\r\n");
         if (!NT_SUCCESS(Status))
         {
             /* Bugcheck */
@@ -2012,9 +2009,6 @@ Phase1InitializationDiscard(IN PVOID Context)
 
     /* Update progress bar */
     InbvUpdateProgressBar(100);
-
-    /* Clear the screen */
-    if (InbvBootDriverInstalled) FinalizeBootLogo();
 
     /* Allow strings to be displayed */
     InbvEnableDisplayString(TRUE);
