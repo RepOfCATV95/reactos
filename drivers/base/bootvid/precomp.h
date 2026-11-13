@@ -23,7 +23,7 @@
 /* Define if FontData has upside-down characters */
 #undef CHAR_GEN_UPSIDE_DOWN
 
-#define BOOTCHAR_HEIGHT 13
+#define BOOTCHAR_HEIGHT 8
 #define BOOTCHAR_WIDTH  8 // Each character line is encoded in a UCHAR.
 
 /* Bitmap Header */
