@@ -2453,7 +2453,11 @@ MmArmInitSystem(IN ULONG Phase,
         if (MmNumberOfPhysicalPages >= ((32 * _1MB) / PAGE_SIZE))
         {
             /* Check for product type being "Wi" for WinNT */
+#if defined(__GNUC__)
             if (MmProductType == '\0i\0W')
+#else
+            if (MmProductType == 0x00690057)
+#endif
             {
                 /* Then this is a large system */
                 MmSystemSize = MmLargeSystem;
@@ -2482,7 +2486,11 @@ MmArmInitSystem(IN ULONG Phase,
         SharedUserData->LargePageMinimum = 0;
 
         /* Check for workstation (Wi for WinNT) */
+#if defined(__GNUC__)
         if (MmProductType == '\0i\0W')
+#else
+        if (MmProductType == 0x00690057)
+#endif
         {
             /* Set Windows NT Workstation product type */
             SharedUserData->NtProductType = NtProductWinNt;
@@ -2495,7 +2503,11 @@ MmArmInitSystem(IN ULONG Phase,
         else
         {
             /* Check for LanMan server (La for LanmanNT) */
+#if defined(__GNUC__)
             if (MmProductType == '\0a\0L')
+#else
+            if (MmProductType == 0x0061004c)
+#endif
             {
                 /* This is a domain controller */
                 SharedUserData->NtProductType = NtProductLanManNt;

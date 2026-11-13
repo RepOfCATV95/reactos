@@ -320,7 +320,7 @@ static
 VOID
 NTAPI
 DisplayFilter(
-    _Inout_ PCHAR* String)
+    _Inout_ PCSTR* String)
 {
     /* Windows hack to skip first dots displayed by AUTOCHK */
     static BOOLEAN NoNT4 = FALSE;
@@ -359,12 +359,12 @@ NTAPI
 DisplayBootBitmap(
     _In_ BOOLEAN TextMode)
 {
+    PUCHAR Header = NULL;
+    PUCHAR Screen = NULL;
     static BOOLEAN FirstCall = TRUE;
 
     if (TextMode)
     {
-        PUCHAR Header = NULL;
-
         InTextMode = TRUE;
         if ( Haxor )
             Haxor = FALSE;
@@ -424,21 +424,13 @@ DisplayBootBitmap(
     }
     else
     {
-        /* Define a regular boot screen variable */
-        PUCHAR Screen = NULL;
-
         InTextMode = FALSE;
 
         /* Is the boot driver installed? */
         if (!InbvBootDriverInstalled) return;
 
-#ifdef BT2_BOOT
-        /* Fill the screen with black color before drawing the boot screen */
-        InbvSolidColorFill(0,0,SCREEN_WIDTH-1,SCREEN_HEIGHT-1,BV_COLOR_BLACK);
-#else
         /* Fill the screen with shade of blue color before drawing the boot screen */
         InbvSolidColorFill(0,0,SCREEN_WIDTH-1,SCREEN_HEIGHT-1,BV_COLOR_GREEN);
-#endif
 
         if (ExVerifySuite(EmbeddedNT))
             Haxor = TRUE;
@@ -499,10 +491,15 @@ DisplayBootBitmap(
         InbvInstallDisplayStringFilter(DisplayFilter);
     }
 
-    /* Initialize the animation, store the line region to rotate in global buffer, do the rest and set FirstCall to FALSE */
 #ifdef INBV_ROTBAR_IMPLEMENTED
+    /* Initialize the animation, store the line region to rotate in global buffer, do the rest and set FirstCall to FALSE */
     AnimBaseProgress = 0;
-    InbvScreenToBufferBlt(RotLineBuffer,AnimBasePosX,AnimBasePosY,AnimBaseWidth,AnimBaseHeight,AnimBaseHalfWidth);
+    InbvScreenToBufferBlt(RotLineBuffer,
+                          AnimBasePosX,
+                          AnimBasePosY,
+                          AnimBaseWidth,
+                          AnimBaseHeight,
+                          AnimBaseHalfWidth);
     KeInitializeDpc(&BootAnimDpc, InbvRotationThread, NULL);
     KeInitializeTimer(&BootAnimTimer);
     BootAnimBaseTimer.QuadPart = 50 * 10000LL;
